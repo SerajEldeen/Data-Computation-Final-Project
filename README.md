@@ -130,20 +130,18 @@ Fraud transactions often occur far from the user's location.
 
 ### Encoding
 
-- Used **One-Hot Encoding** for categorical features
-- Handled high-cardinality features carefully use (e.g., merchant) use [Label Encoding or Drop it if too large]
+- **High-cardinality** features (`merchant`, `city`, `job`): **Label Encoding** — fit on train only, applied to both train and test
+- **Low-cardinality** features (`category`, `gender`, `state`): **One-Hot Encoding** via `pd.get_dummies` with `drop_first=True`
+- Test set columns are aligned to train to handle any missing dummy categories
 
 ---
 
 ### Handling Imbalanced Data
 
-The dataset is highly imbalanced.
+The dataset is highly imbalanced (fraud cases are a small minority).
 
-We used:
-
-- **SMOTE (Synthetic Minority Over-sampling Technique)**
-
-This improves model ability to detect fraud cases.
+- Applied **SMOTE (Synthetic Minority Over-sampling Technique)** on the **training set only** to prevent data leakage
+- Generates synthetic fraud samples to balance class distribution
 
 ---
 
@@ -204,7 +202,8 @@ Accuracy alone is NOT reliable
 
 - Youssef Elgamal: EDA + Visualization
 - Asser Youssef: Data cleaning + Feature engineering
-- Ahmed Gamal: Encoding + Feature Scaling + Dimensionality Reduction
+- Ahmed Gamal: Feature Scaling + Dimensionality Reduction
+- Mohamed Hesham: Encoding + Handling Imbalanced Data
 - Seraj Eldeen: Model + Tuning + Evaluation
 
 ---
