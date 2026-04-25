@@ -202,8 +202,8 @@ Accuracy alone is NOT reliable
 
 - Youssef Elgamal: EDA + Visualization
 - Asser Youssef: Data cleaning + Feature engineering
-- Ahmed Gamal: Feature Scaling + Dimensionality Reduction
 - Mohamed Hesham: Encoding + Handling Imbalanced Data
+- Ahmed Gamal: Feature Scaling + Dimensionality Reduction
 - Seraj Eldeen: Model + Tuning + Evaluation
 
 ---
